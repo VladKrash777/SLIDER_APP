@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="./assets/images/pic-icon.png" type="image/x-icon" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+	<link rel="stylesheet" href="./style.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
+	<script src="../src/app.js" type="module"></script>
+
+	<title>SLIDESHOW - app</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
+			<div class="container">
+				<span id="home-page-link" class="navbar-brand cursor">Slideshow</span>
+
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="bi bi-list"></i>
+				</button>
+
+				<div class="navbar-collapse collapse d-flex-md justify-content-between" id="navbarColor01">
+					<div>
+						<ul class="navbar-nav mb-2 mb-lg-0">
+							<li class="nav-item">
+								<span id="about-page-link" class="nav-link cursor" aria-current="page">About</span>
+							</li>
+							<li class="nav-item">
+								<span id="create-pic-link" class="nav-link cursor d-none" aria-current="page">Add Pic</span>
+							</li>
+						</ul>
+					</div>
+
+					<div>
+						<ul class="navbar-nav mb-2 mb-lg-0">
+							<li class="nav-item">
+								<span id="signup-page-link" class="nav-link cursor" aria-current="page">Signup</span>
+							</li>
+							<li class="nav-item">
+								<span id="login-page-link" class="nav-link cursor" aria-current="page">Login</span>
+							</li>
+							<!-- <li class="nav-item">
+								<span id="logout-page-link" class="nav-link cursor d-none" aria-current="page">Logout</span>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<!-- home page -->
+		<div id="home-page" class="d-block">
+			<div class="container">
+				<!-- home page titles -->
+				<div class="center">
+					<div class="col-12 col-md-10 col-xl-8">
+						<h1 class="display-4 text-center">HOME PAGE</h1>
+						<h2 class="fs-5">Here you can look at your pictures...</h2>
+						<hr />
+					</div>
+				</div>
+
+				<!-- the slideshow -->
+				<div id="slider-container">
+					<div class="center">
+						<div class="col-12 col-md-10 col-xl-8">
+							<figure>
+								<img id="slider-image" src="" alt="slider image" class="slide-show-img bg-dark p-2" />
+								<figcaption>
+									Photographed by:
+									<span id="slider-credits">...</span>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+
+					<!-- slider controllers -->
+					<div class="center mb-2">
+						<div>
+							<div id="slider-prev-btn" class="btn btn-outline-dark mx-2">
+								Prev
+							</div>
+							<div id="slider-next-btn" class="btn btn-outline-dark mx-2">
+								Next
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- about page -->
+		<div id="about-page" class="d-none">
+			<div class="container">
+				<div class="center">
+					<div class="col-12 col-md-10 col-xl-8">
+						<h1 class="display-4">ABOUT PAGE</h1>
+						<h2 class="fs-5">Here you can look at your pictures...</h2>
+						<hr />
+					</div>
+				</div>
+
+				<p>about page content</p>
+			</div>
+		</div>
+
+		<!-- create pic page -->
+		<div id="create-pic-page" class="d-none">
+			<div class="container">
+				<div class="center" style="height: 87vh">
+					<form class="form p-2 col-12 col-md-6 col-xl-4 border rounded" style="min-width: 280px">
+						<h1 class="text-center fs-5">CREATE NEW PICTURE</h1>
+						<div>
+							<label for="create-pic-url">Source</label>
+							<input id="create-pic-url" type="text" class="form-control mb-2" name="url" autocomplete="off" />
+							<span id="create-pic-url-error" class="text-danger"></span>
+						</div>
+						<div>
+							<label for="create-pic-alt">Description</label>
+							<input id="create-pic-alt" type="text" class="form-control mb-2" name="alt" autocomplete="off" />
+							<span id="create-pic-alt-error" class="text-danger"></span>
+						</div>
+						<div>
+							<label for="create-pic-credits">Credits</label>
+							<input id="create-pic-credits" type="text" class="form-control mb-2" name="credits"
+								autocomplete="off" />
+							<span id="create-pic-credits-error" class="text-danger"></span>
+						</div>
+						<div>
+							<label for="create-pic-price">Price</label>
+							<input id="create-pic-price" type="number" class="form-control mb-2" name="price"
+								autocomplete="off" />
+							<span id="create-pic-price-error" class="text-danger"></span>
+						</div>
+						<input id="create-pic-cancel-btn" type="button" value="cancel"
+							class="btn btn-secondary col-12 mb-2" />
+						<input id="create-pic-submit-btn" type="button" value="submit" class="btn btn-primary col-12 mb-2"
+							disabled />
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- signup page -->
+		<div id="signup-page" class="d-none">
+			<div class="container">
+				<div class="center">
+					<div class="col-12 col-md-10 col-xl-8">
+						<h1 class="display-4">SIGNUP PAGE</h1>
+						<h2 class="fs-5">Here you can look at your pictures...</h2>
+						<hr />
+					</div>
+				</div>
+				<div class="center">
+					<form class="form col-12 col-md-10 col-xl-8 border p-2 rounded">
+					  <h6>Name</h6>
+					  <div class="row">
+						 <div class="col-12 col-md-6">
+							<label for="first-name-signup-field"
+							  >First Name<span class="text-danger">*</span></label
+							>
+							<input
+							  class="form-control mb-2"
+							  type="text"
+							  name="first"
+							  id="first-name-signup-field"
+							  minlength="2"
+							  autocomplete="off"
+							/>
+							<span
+							  id="first-name-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+						 <div class="col-12 col-md-6">
+							<label for="last-name-signup-field"
+							  >Last Name<span class="text-danger">*</span></label
+							>
+							<input
+							  class="form-control mb-2"
+							  type="text"
+							  name="last"
+							  id="last-name-signup-field"
+							  autocomplete="off"
+							/>
+							<span
+							  id="last-name-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+					  </div>
+					  <h6>Address</h6>
+					  <div class="row">
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="state-signup-field">State</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="state"
+							  id="state-signup-field"
+							/>
+							<span id="state-signup-error-span" class="text-danger"></span>
+						 </div>
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="country-signup-field">Country</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="country"
+							  id="country-signup-field"
+							/>
+							<span
+							  id="country-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="city-signup-field">City</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="city"
+							  id="city-signup-field"
+							/>
+							<span id="city-signup-error-span" class="text-danger"></span>
+						 </div>
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="street-signup-field">Street</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="street"
+							  id="street-signup-field"
+							/>
+							<span
+							  id="street-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="house-signup-field">House Number</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="number"
+							  name="house"
+							  id="house-signup-field"
+							/>
+							<span id="house-signup-error-span" class="text-danger"></span>
+						 </div>
+						 <div class="col-12 col-md-6 col-xl-4">
+							<label for="zip-signup-field">Zip Code</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="number"
+							  name="zip"
+							  id="zip-signup-field"
+							/>
+							<span id="zip-signup-error-span" class="text-danger"></span>
+						 </div>
+					  </div>
+					  <h6>Means of contact</h6>
+					  <div class="row">
+						 <div class="col-12 col-md-6">
+							<label for="email-signup-field"
+							  >Email<span class="text-danger">*</span></label
+							>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="email"
+							  id="email-signup-field"
+							  minlength="2"
+							/>
+							<span id="email-signup-error-span" class="text-danger"></span>
+						 </div>
+						 <div class="col-12 col-md-6">
+							<label for="phone-signup-field">Phone</label>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="text"
+							  name="phone"
+							  id="phone-signup-field"
+							/>
+							<span id="phone-signup-error-span" class="text-danger"></span>
+						 </div>
+					  </div>
+					  <h6>Security</h6>
+					  <div class="row">
+						 <div class="col-12 col-md-6">
+							<label for="password-signup-field"
+							  >Password<span class="text-danger">*</span></label
+							>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="password"
+							  name="password"
+							  id="password-signup-field"
+							  minlength="2"
+							/>
+							<span
+							  id="password-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+						 <div class="col-12 col-md-6">
+							<label for="password-reenter-signup-field"
+							  >Re-enter Password<span class="text-danger">*</span></label
+							>
+							<input
+							  autocomplete="off"
+							  class="form-control mb-2"
+							  type="password"
+							  name="passwordReEnter"
+							  id="password-reenter-signup-field"
+							  minlength="2"
+							/>
+							<span
+							  id="password-reenter-signup-error-span"
+							  class="text-danger"
+							></span>
+						 </div>
+					  </div>
+					  <div class="center my-2">
+						 <div>
+							<label for="isBiz-signup-field">Business Client</label>
+							<input
+							  autocomplete="off"
+							  class="form-check-inline mb-2"
+							  type="checkbox"
+							  name="isBiz"
+							  id="isBiz-signup-field"
+							/>
+						 </div>
+					  </div>
+					  <input
+						 
+						 id="submit-signup-user-btn"
+						 type="button"
+						 value="Submit"
+						 class="btn btn-primary col-12 mb-2"
+						 
+					  />
+					  <input
+						 
+						 id="cancel-signup-user-btn"
+						 type="button"
+						 value="Cancel"
+						 class="btn btn-danger col-12 mb-2"
+					  />
+					</form>
+				 </div>
+			</div>
+		</div>
+		
+
+		<!-- login page -->
+		<div id="login-page" class="d-none">
+			<div class="container">
+				<div class="center" style="min-height: 87vh">
+					<form class="form col-12 col-md-10 col-xl-8 p-2 rounded border" style="max-width: 450px">
+						<h1 class="text-center fs-5">LOGIN</h1>
+
+						<div>
+							<label for="login-email-field">email</label>
+							<input class="form-control mb-2" type="email" name="email" id="login-email-field"
+								 />
+							<span id="login-email-error" class="text-danger"></span>
+						</div>
+
+						<div>
+							<label for="login-password-field">password</label>
+							<input class="form-control mb-2" type="password" name="password" id="login-password-field"
+								 />
+							<span id="login-password-error" class="text-danger mb-1"></span>
+						</div>
+
+						<input id="login-submit-btn" type="button" value="Submit" class="btn btn-primary col-12 mb-2"
+							disabled />
+						<span id="user-not-found-msg" class="d-none center text-danger">Wrong email or password</span>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- error 404 page -->
+		<div id="error-404-page" class="d-none">
+			<div class="container">
+				<div class="center">
+					<div class="col-12 col-md-10 col-xl-8">
+						<h1 class="display-4">ERROR 404 PAGE</h1>
+						<h2 class="fs-5">Here you can look at your pictures...</h2>
+						<hr />
+					</div>
+				</div>
+
+				<p id="return-to-home-page-link" class="cursor">
+					Click here to return to the hom page...
+				</p>
+			</div>
+		</div>
+	</main>
+
+	<footer class="border-top pt-3 bg-dark center">
+		<p class="text-light">Created by Vladlen Krash &copy;</p>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<a href="https://www.instagram.com/vladlen_krash/" class="fa fa-instagram" ></a>
+	</footer>
+</body>
+
+</html>
