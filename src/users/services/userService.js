@@ -150,6 +150,7 @@ export const signUp = () => {
 		zip: "number",
 	};
 
+
 	const SIGNUP_INPUTS_ARRAY = [
 		SIGNUP_EMAIL_FIELD,
 		SIGNUP_PASSWORD_FIELD,
