@@ -185,20 +185,7 @@ export const signUp = () => {
 	const handleSignupSubmit = data => {
 		console.log(data);
 
-		// debugger
-		// 
-		// 1. compare two passwords, if they are not the same, show error like 
-		// USER_NOT_FOUND_MSG.className = "d-none center text-danger"; but use different span.... 
-		// and return ( finish function )
-		// 2. check if email already exists in global.users.
-		// if exists -> shows msgs like 
-		// USER_NOT_FOUND_MSG.className = "d-none center text-danger"; but use different span.... 
-		// and return. ( finish function ) 
-		// 3. if you are in this line, means you didnt return until now.. means everything ok.
-		// 4 the user to global users,
-		// 5 put him in localStorage
-		// 6 put him in global
-		// 7 change page to Home
+
 	};
 
 	const form = useForm(INITIAL_SIGNUP_FORM, SIGNUP_SCHEMA, handleSignupSubmit);
