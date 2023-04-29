@@ -39,6 +39,7 @@ import {
 	SUBMIT_SIGNUP_USER_BTN,
 	USER_NOT_FOUND_MSG,
 } from "../../services/domService.js";
+import User from "../models/User.js";
 import useForm from "./../../forms/useForm.js";
 import { removeToken, setToken } from "./localStorageService.js";
 
@@ -48,7 +49,6 @@ export const logout = () => {
 	LOGIN_PAGE_LINK.textContent = "Login";
 	CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-none"
 	SIGNUP_PAGE_LINK.className = "nav-link cursor"
-	onChangePage(PAGES.HOME)
 }
 
 export const login = () => {
@@ -183,9 +183,42 @@ export const signUp = () => {
 	];
 
 	const handleSignupSubmit = data => {
-		console.log(data);
-
-
+		const userToAdd = {
+			email: data.email,
+			password: data.password,
+			address: {
+				state: data.state,
+				country: data.country,
+				city: data.city,
+				street: data.street,
+				houseNumber: parseInt(data.house),
+				zip: parseInt(data.zip),
+			},
+			phone: data.phone,
+			name: {
+				first: data.first,
+				last: data.last,
+			},
+			isBusiness: data.isBiz
+		};
+		try {
+			const user = new User(userToAdd, window.users)
+			window.users.push(user)
+			window.user = user
+			setToken(user)
+			onChangePage(PAGES.HOME)
+			CREATE_PIC_PAGE_LINK.className = "nav-link cursor d-block"
+			SIGNUP_PAGE_LINK.className = "nav-link cursor d-none"
+			LOGIN_PAGE_LINK.textContent = "LogOut";		
+			onReset(
+				SIGNUP_INPUTS_ARRAY,
+				SIGNUP_ERROR_ARRAY,
+				SUBMIT_SIGNUP_USER_BTN,
+				form.handleReset
+			);
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
 	const form = useForm(INITIAL_SIGNUP_FORM, SIGNUP_SCHEMA, handleSignupSubmit);

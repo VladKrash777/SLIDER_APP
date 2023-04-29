@@ -26,24 +26,15 @@ SIGNUP_PAGE_LINK.addEventListener("click", () => {
 	onChangePage(PAGES.SIGNUP)
 });
 
-
-
-
-
-
-
 LOGIN_PAGE_LINK.addEventListener("click", () => {
 	const localStorageUser = getUser()
 	if (localStorageUser === null) {
-		// login logic
 		onChangePage(PAGES.LOGIN);
 		login();
 	} else {
-		// logout logic
 		logout();
-		onChangePage(PAGES.LOGIN);
+		onChangePage(PAGES.HOME);
 	}
-
 });
 RETURN_TO_HOME_PAGE_LINK.addEventListener("click", () =>
 	onChangePage(PAGES.HOME)
